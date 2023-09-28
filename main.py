@@ -15,7 +15,7 @@ image_link_pair = {
 # index.
 @app.route('/')
 def hello_world():
-    return "Project 'mislead' on github: "
+    return "Project 'mislead' on github: <a href='https://github.com/Vsimpro/misdirection'>Vsimpro/misdirection</a>"
 
 # Misdirection.
 @app.route("/<file>")
