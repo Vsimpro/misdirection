@@ -23,17 +23,20 @@ def file(file):
     if file not in image_link_pair:
         return "404."
 
+
     user_agent = request.headers.get("User-Agent")
-    if "discord" in user_agent or "Discord" in user_agent:
+    print(user_agent)
+    if "discord" in user_agent or "Discord" in user_agent or "Mozilla/5.0 (Macintosh; Intel Mac OS X 11.6; rv:92.0) Gecko/20100101 Firefox/92.0" == user_agent:
         # Serve the image for cdn.discord
         directory = "./pictures"
         filename = file
-        
+
         return send_from_directory(directory, filename)
 
     # Serve the link for the user.
-    return image_link_pair[file]
+    print("Redirecting")
+    return redirect("https://vsim.xyz")
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5500)
