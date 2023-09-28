@@ -35,7 +35,7 @@ def file(file):
 
     # Serve the link for the user.
     print("Redirecting")
-    return redirect("https://vsim.xyz")
+    return redirect(image_link_pair[f"{file}"])
 
 
 if __name__ == '__main__':
